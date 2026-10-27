@@ -29,9 +29,9 @@ Der grundlegende Spielablauf:
 
 ### Phase 1: Projekt aufsetzen
 
-- [ ] Next.js-Projekt mit TypeScript, App Router und Tailwind CSS erstellen.
-- [ ] Entwicklungsserver starten und prüfen, ob die Anwendung läuft.
-- [ ] Grundlegende Seitenstruktur einrichten.
+- [x] Next.js-Projekt mit TypeScript, App Router und Tailwind CSS erstellen.
+- [x] Entwicklungsserver starten und prüfen, ob die Anwendung läuft.
+- [x] Grundlegende Seitenstruktur einrichten.
 
 Setup:
 
@@ -47,50 +47,50 @@ Die Anwendung ist standardmäßig unter `http://localhost:3000` erreichbar.
 
 ### Phase 2: Core Gameplay
 
-- [ ] Klickbaren Catboy-Charakter implementieren.
-- [ ] Bei jedem Klick Snacks vergeben.
-- [ ] Aktuellen Snack-Vorrat in der UI anzeigen.
-- [ ] Upgrade-Shop mit kaufbaren Verbesserungen erstellen.
-- [ ] Prüfen, ob genügend Snacks für einen Kauf vorhanden sind.
-- [ ] Automatisches Einkommen pro Sekunde implementieren.
-- [ ] Klickstärke und passives Einkommen anhand gekaufter Upgrades berechnen.
+- [x] Klickbaren Catboy-Charakter implementieren.
+- [x] Bei jedem Klick Snacks vergeben.
+- [x] Aktuellen Snack-Vorrat in der UI anzeigen.
+- [x] Upgrade-Shop mit kaufbaren Verbesserungen erstellen.
+- [x] Prüfen, ob genügend Snacks für einen Kauf vorhanden sind.
+- [x] Automatisches Einkommen pro Sekunde implementieren.
+- [x] Klickstärke und passives Einkommen anhand gekaufter Upgrades berechnen.
 
 **Ergebnis:** Eine funktionierende Spielschleife, bei der Snacks gesammelt und in Fortschritt investiert werden.
 
 ### Phase 3: Anime-Design und UI
 
-- [ ] Responsives Layout für Desktop und Smartphone erstellen.
-- [ ] Dunkle Oberfläche mit Lila- und Rosatönen gestalten.
-- [ ] Großen Catboy-Avatar prominent in der Mitte platzieren.
-- [ ] Upgrade-Shop in übersichtliche Karten aufteilen.
-- [ ] Klick-Feedback mit schwebenden `+1`-Zahlen oder Partikeleffekten hinzufügen.
-- [ ] Statusanzeigen für Snack-Vorrat, Klickstärke und Einkommen einbauen.
-- [ ] Hover-, Fokus- und Disabled-Zustände für interaktive Elemente gestalten.
+- [x] Responsives Layout für Desktop und Smartphone erstellen.
+- [x] Dunkle Oberfläche mit Lila- und Rosatönen gestalten.
+- [x] Großen Catboy-Avatar prominent in der Mitte platzieren.
+- [x] Upgrade-Shop in übersichtliche Karten aufteilen.
+- [x] Klick-Feedback mit schwebenden `+1`-Zahlen oder Partikeleffekten hinzufügen.
+- [x] Statusanzeigen für Snack-Vorrat, Klickstärke und Einkommen einbauen.
+- [x] Hover-, Fokus- und Disabled-Zustände für interaktive Elemente gestalten.
 
 **Ergebnis:** Eine stimmige, gut bedienbare Oberfläche mit sichtbarem Feedback für Aktionen.
 
 ### Phase 4: Speichern und Spielstand
 
-- [ ] Spielstand automatisch in `localStorage` speichern.
-- [ ] Gespeicherten Spielstand beim Laden wiederherstellen.
-- [ ] Aktuelle Snacks und insgesamt verdiente Snacks speichern.
-- [ ] Gekaufte Upgrades und freigeschaltete Inhalte speichern.
-- [ ] Zeitstempel der letzten Speicherung speichern.
-- [ ] Reset-Funktion mit Bestätigung ergänzen.
-- [ ] Ungültige oder fehlende Speicherdaten sicher behandeln.
-- [ ] Zugriff auf `localStorage` ausschließlich im Browser ausführen.
+- [x] Spielstand automatisch in `localStorage` speichern.
+- [x] Gespeicherten Spielstand beim Laden wiederherstellen.
+- [x] Aktuelle Snacks und insgesamt verdiente Snacks speichern.
+- [x] Gekaufte Upgrades speichern; weitere freischaltbare Inhalte sind für Version 2.0 vorgesehen.
+- [x] Zeitstempel der letzten Speicherung speichern.
+- [x] Reset-Funktion mit Bestätigung ergänzen.
+- [x] Ungültige oder fehlende Speicherdaten sicher behandeln.
+- [x] Zugriff auf `localStorage` ausschließlich im Browser ausführen.
 
 **Ergebnis:** Der Fortschritt bleibt nach einem Neuladen der Seite erhalten.
 
 ### Phase 5: Testen und veröffentlichen
 
-- [ ] Prüfen, dass ohne ausreichende Snacks kein Upgrade gekauft werden kann.
-- [ ] Prüfen, dass jeder Kauf den korrekten Preis abzieht.
-- [ ] Prüfen, dass Klickstärke und passives Einkommen korrekt aktualisiert werden.
-- [ ] Prüfen, dass der Spielstand nach einem Neuladen korrekt wiederhergestellt wird.
-- [ ] Oberfläche auf kleinen und großen Bildschirmen testen.
-- [ ] Bewegungen und Soundeffekte optional abschaltbar machen.
-- [ ] Produktions-Build ausführen.
+- [x] Prüfen, dass ohne ausreichende Snacks kein Upgrade gekauft werden kann.
+- [x] Prüfen, dass jeder Kauf den korrekten Preis abzieht.
+- [x] Prüfen, dass Klickstärke und passives Einkommen korrekt aktualisiert werden.
+- [x] Prüfen, dass der Spielstand nach einem Neuladen korrekt wiederhergestellt wird.
+- [x] Oberfläche auf kleinen und großen Bildschirmen testen.
+- [x] Bewegungen systemweit und per Motion-Schalter reduzierbar machen; Soundeffekte sind in Version 1.0 nicht implementiert.
+- [x] Produktions-Build ausführen.
 - [ ] Anwendung bei Bedarf beispielsweise auf Vercel bereitstellen.
 
 Build überprüfen:
@@ -176,33 +176,32 @@ export type GameState = {
   snacks: number;
   totalSnacksEarned: number;
   upgradesOwned: Record<string, number>;
-  unlockedCharacters: string[];
-  unlockedSkins: string[];
   lastSavedAt: number;
+  reducedMotion: boolean;
 };
 ```
 
-Die Upgrade-Definitionen sollten getrennt vom aktuellen Spielstand gehalten werden. So können Preise und Effekte zentral verwaltet werden.
+Die Upgrade-Definitionen werden getrennt vom aktuellen Spielstand gehalten. Die erste Version enthält noch keine freischaltbaren Charaktere oder Skins; diese bleiben gemäß Version 2.0 außerhalb des gespeicherten Spielstands.
 
 ## 6. Release-Checkliste
 
 ### Core Gameplay
 
-- [ ] Catboy anklicken und Snacks erhalten.
-- [ ] Upgrade-Shop mit vier Upgrades.
-- [ ] Automatisches Einkommen berechnen.
+- [x] Catboy anklicken und Snacks erhalten.
+- [x] Upgrade-Shop mit vier Upgrades.
+- [x] Automatisches Einkommen berechnen.
 
 ### Oberfläche
 
-- [ ] Responsives Layout.
-- [ ] Klick-Animationen und unmittelbares Feedback.
-- [ ] Snack-Anzeige und Upgrade-Preise.
+- [x] Responsives Layout.
+- [x] Klick-Animationen und unmittelbares Feedback.
+- [x] Snack-Anzeige und Upgrade-Preise.
 
 ### Spielstand
 
-- [ ] Spielstand automatisch speichern.
-- [ ] Spielstand nach dem Neuladen wiederherstellen.
-- [ ] Spielstand sicher zurücksetzen.
+- [x] Spielstand automatisch speichern.
+- [x] Spielstand nach dem Neuladen wiederherstellen.
+- [x] Spielstand sicher zurücksetzen.
 
 ## 7. Ideen für Version 2.0
 
